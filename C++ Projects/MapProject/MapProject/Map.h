@@ -93,7 +93,7 @@ private:
 
     Node* updateNode(Node* root, const KeyType& key, const ValueType& value);
 
-    bool eraseNode(Node*& node, Node*& prevNode, const KeyType& key) const;
+    bool eraseNode(Node*& node, const KeyType& key) const;
 
     Node* getNode(Node* root, const KeyType& key, ValueType& value) const;
 
