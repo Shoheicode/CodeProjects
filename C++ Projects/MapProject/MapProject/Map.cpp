@@ -164,8 +164,10 @@ bool Map::eraseNode(Map::Node*& node, const KeyType& key) const {
 
     if (node->key == key) { // if the node key equals the key, point all nodes back correctly
         if (node->left != nullptr) { // if node left exists, move left node to node
+            Node* tem = node;
             Node* rightNode = node->right;
             node = node->left;
+            delete tem;
             if (rightNode == nullptr) { // if right node does not exist, return true;
                 return true;
             }
@@ -179,7 +181,9 @@ bool Map::eraseNode(Map::Node*& node, const KeyType& key) const {
             }
         }
         else if (node->right != nullptr) { // Check if right node exists and if so, set the current node to the right node
+            Node* tem = node;
             node = node->right;
+            delete tem;
             return true;
         }
         node = nullptr;
@@ -362,7 +366,3 @@ void subtract(const Map& m1, const Map& m2, Map& result) {
     }
 
 };
-
-int main() {
-
-}
