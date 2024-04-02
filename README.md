@@ -6,6 +6,7 @@ Data Structures and Algorithims:
 - [Map Project (C++)](https://github.com/Shoheicode/CodeProjects/tree/main/C%2B%2B%20Projects/MapProject)
 - [Bank Project (C++)](https://github.com/Shoheicode/CodeProjects/blob/main/JavaProjects/TicTacToe.java)
 - [LinkedList (C++)](https://github.com/Shoheicode/CodeProjects/blob/main/C%2B%2B%20Projects/LinkedList.cpp)
+- [IceMan Project](https://github.com/Shoheicode/CS30-ICEMAN)
 
 Game Projects:
 - [Battleship (Pages)](https://github.com/Shoheicode/CodeProjects/blob/main/JavaProjects/Battleship.java)
