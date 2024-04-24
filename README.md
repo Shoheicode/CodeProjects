@@ -9,8 +9,9 @@ Data Structures and Algorithims:
 - [IceMan Project](https://github.com/Shoheicode/CS30-ICEMAN)
 
 Game Projects:
-- [Battleship (Pages)](https://github.com/Shoheicode/CodeProjects/blob/main/JavaProjects/Battleship.java)
+- [Battleship (Java)](https://github.com/Shoheicode/CodeProjects/blob/main/JavaProjects/Battleship.java)
 - [Tic-Tac-Toe (Java)](https://github.com/Shoheicode/CodeProjects/blob/main/JavaProjects/TicTacToe.java)
+- 
 
 Multiple Inheritance:
 - [FRC Robotics Code](https://github.com/WestTorranceRobotics/RapidReact)
