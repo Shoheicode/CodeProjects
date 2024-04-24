@@ -1,10 +1,18 @@
-## Map Project
+# Map Project
+
+## Description
 
 Create a Map utilizing a data structure of your choosing and be able to complete the functions given and ensure proper deallocation and allocation of memory for the created data structure.
 
+The data structure used in this project is a Binary Tree and it implements multiple different functions that help with management like inserting and updating nodes.
+
+Each Node comes with a key and a data value and using a template, can implement multiple types of data types. 
+
+## Table of Contents:
 
 
-The data structure used in this project is a Binary Tree and it implements multiple different functions that help with management. 
+
+## Constructor:
 
 ```
 function test() {
