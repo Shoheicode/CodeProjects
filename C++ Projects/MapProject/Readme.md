@@ -10,7 +10,7 @@ Each Node comes with a key and a data value and using a template, can implement 
 
 ## Table of Contents:
 
-
+- [Contribution guidelines for this project](docs/Constructor.md)
 
 ## Constructor:
 
