@@ -10,8 +10,8 @@ Each Node comes with a key and a data value and using a template, can implement 
 
 ## Table of Contents:
 
-- [Contribution guidelines for this project](Readme.md#constructor)
-- [Copy Constructor](Readme.md#copy-constructor)
+- [Contribution guidelines for this project](#constructor)
+- [Copy Constructor](#copy-constructor)
 
 ## Constructor:
 
