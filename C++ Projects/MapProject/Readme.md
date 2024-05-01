@@ -11,15 +11,23 @@ Each Node comes with a key and a data value and using a template, can implement 
 ## Table of Contents:
 
 <details>
-  <summary>Markdown</summary>
+  <summary>Project Overview</summary>
+  
 - [Project Description](#description)
 - [Project Obstacles](#obstacles)
+  
+</details>
+
+<details>
+  <summary>Constructor/Destructor/Assignment Operator</summary>
+
 - [Constructor](#constructor)
 - [Copy Constructor](#copy-constructor)
-- [Copy Constructor](#copy-constructor)
-- [Copy Constructor](#copy-constructor)
-
+- [Destructor](#Destructor)
+- [Copy Constructor](#Assignment-Operator)
+  
 </details>
+
 
 ---
 
@@ -87,3 +95,21 @@ void Map::deleteNodes(Node* del) {
 
 };
 ```
+## Assignment Operator
+```
+const Map& Map::operator=(const Map& rhs) {
+
+    if (this->root != nullptr) { // Checks if root is exists and if it does, delete the nodes and 
+        deleteNodes(this->root);
+        copyNode(rhs.root, this->root);
+        this->m_size = rhs.m_size;
+        return *this;
+    }
+
+    copyNode(rhs.root, this->root);
+    this->m_size = rhs.m_size;
+
+    return *this;
+}
+```
+
