@@ -11,6 +11,7 @@ Each Node comes with a key and a data value and using a template, can implement 
 ## Table of Contents:
 
 - [Project Description](#description)
+- [Project Obstacles](#obstacles)
 - [Constructor](#constructor)
 - [Copy Constructor](#copy-constructor)
 - [Copy Constructor](#copy-constructor)
