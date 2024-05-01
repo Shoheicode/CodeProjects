@@ -12,12 +12,12 @@ Each Node comes with a key and a data value and using a template, can implement 
 
 <details>
   <summary>Markdown</summary>
-[Project Description](#description)
-[Project Obstacles](#obstacles)
-[Constructor](#constructor)
-[Copy Constructor](#copy-constructor)
-[Copy Constructor](#copy-constructor)
-[Copy Constructor](#copy-constructor)
+- [Project Description](#description)
+- [Project Obstacles](#obstacles)
+- [Constructor](#constructor)
+- [Copy Constructor](#copy-constructor)
+- [Copy Constructor](#copy-constructor)
+- [Copy Constructor](#copy-constructor)
 
 </details>
 
