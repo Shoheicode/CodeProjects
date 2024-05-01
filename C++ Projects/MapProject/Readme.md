@@ -10,8 +10,17 @@ Each Node comes with a key and a data value and using a template, can implement 
 
 ## Table of Contents:
 
-- [Contribution guidelines for this project](#constructor)
+- [Project Description](#description)
+- [Constructor](#constructor)
 - [Copy Constructor](#copy-constructor)
+- [Copy Constructor](#copy-constructor)
+- [Copy Constructor](#copy-constructor)
+
+## Description
+The design I used for a map was through a binary tree with a struct root node within the class. The Struct Node had a KeyType and a ValueType variable with left and right nodes variables. These left and right nodes allowed for the ability to traverse the tree and be able to and used a binary tree. Finally, I have a constructor for the struct which allows me to create new Nodes if I needed to. For the Map Structure, I utilized a root node to store the first key and value of the binary tree which helped have a central root to then use to traverse the tree. I also use a variable m_size to store the size of the binary tree because it is important to know the size of the binary tree for functions like the get function and size function. The Nodes are ordered alphabetically where the left most node is the first word alphabetically and the rightmost node is the last word alphabetically. 
+
+## Obstacles:
+Some of the obstacles I had to overcome was learning how to delete nodes in a deconstructor as I had to learn how to delete a node after I ran the recursive function. I figured out how to delete the node using a recursive function which helps transverse the node and wrote it so that after it transverse to the end of the binary tree, it would delete each node.  Another obstacle I had to overcome was the obstacle of using recursive functions more as I was a bit unfamiliar with utilizing them but through this project, I was able to utilize them and implement them into the binary tree. Finally, I think I had some obstacles with the copy constructor and using the constructor but I created a helper function which helped recursively copy each node. 
 
 ## Constructor:
 
@@ -61,9 +70,9 @@ void Map::deleteNodes(Node* del) {
         return; // return nothing and continues program.
     }
     else {
-        deleteNodes(del->left);//Recursively Deletes the Nodes in the left branch
+        deleteNodes(del->left); //Recursively Deletes the Nodes in the left branch
 
-        deleteNodes(del->right);//Recursively Deletes the Nodes in the right branch
+        deleteNodes(del->right); //Recursively Deletes the Nodes in the right branch
 
         delete del; // deletes node
     }
