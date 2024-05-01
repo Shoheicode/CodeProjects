@@ -12,16 +12,12 @@ Each Node comes with a key and a data value and using a template, can implement 
 
 <details>
   <summary>Markdown</summary>
-
--  <kbd>[Markdown Editor](https://binarytree.dev/me)</kbd>
--  <kbd>[Table Of Content](https://binarytree.dev/toc)</kbd>
--  <kbd>[Markdown Table Generator](https://binarytree.dev/md_table_generator)</kbd>
-- [Project Description](#description)
-- [Project Obstacles](#obstacles)
-- [Constructor](#constructor)
-- [Copy Constructor](#copy-constructor)
-- [Copy Constructor](#copy-constructor)
-- [Copy Constructor](#copy-constructor)
+[Project Description](#description)
+[Project Obstacles](#obstacles)
+[Constructor](#constructor)
+[Copy Constructor](#copy-constructor)
+[Copy Constructor](#copy-constructor)
+[Copy Constructor](#copy-constructor)
 
 </details>
 
