@@ -73,7 +73,7 @@ Each Node comes with a key and a data value and using a template, can implement 
 Some of the obstacles I had to overcome was learning how to delete nodes in a deconstructor as I had to learn how to delete a node after I ran the recursive function. I figured out how to delete the node using a recursive function which helps transverse the node and wrote it so that after it transverse to the end of the binary tree, it would delete each node.  Another obstacle I had to overcome was the obstacle of using recursive functions more as I was a bit unfamiliar with utilizing them but through this project, I was able to utilize them and implement them into the binary tree. Finally, I think I had some obstacles with the copy constructor and using the constructor but I created a helper function which helped recursively copy each node. 
 
 ## Test cases: 
-### Case 1:
+#### Case 1:
 ```
 Map m;
 
@@ -88,7 +88,7 @@ assert(!m.insert("Ethel", 456)); //Asserts you can't add Ethel
 assert(!m.empty()); // Asserts the map is empty.
 ```
 
-### Case 2:
+#### Case 2:
 ```
 Map m;
 
@@ -103,7 +103,7 @@ assert(m1.get("James", d) && d == 123); // Checks if there is a node James and i
 assert(m1.get("Johns", d) && d == 456); // Checks if there is a node Johns and if it has the same value 
 ```
 
-### Case 3:
+#### Case 3:
 ```
 Map m;
 
@@ -123,7 +123,7 @@ assert(!m1.get("Abraham", d) && d != 456); // Checks if there is not a node Abra
 assert(!m.get(“whooo”, d));
 ```
 
-### Case 4:
+#### Case 4:
 ```
 Map m;
 
@@ -137,7 +137,7 @@ assert(m.empty());          // Asserts that the map is empty
 assert(!m.erase("John"));  // Confirms that there is nothing that can be erased
 ```
 
-### Case 5:
+#### Case 5:
 ```
 Map m;
 
@@ -155,7 +155,7 @@ assert(m.size() == 5);      // Asserts that the map size does not equal is 0
 assert(m.get("Rebecca", d) && d == 100); // Asserts that you can get Rebecca and that d equals the new updated Value
 ```
 
-### Case 6:
+#### Case 6:
 ```
 Map m;
 
@@ -171,7 +171,7 @@ assert(m.get("Fully", d) && d == 134); // Asserts nodes James Exists and that it
 assert(m.get("JAMES", d) && d == 655); // Asserts that you can get JAMES and that d equals 655
 ```
 
-### Case 7:
+#### Case 7:
 ```
 Map m;
 
@@ -189,7 +189,7 @@ assert(m.get("Rebel", d) && d == 544); // Asserts nodes Rebel Exists and that it
 assert(m.get("JustKen", d) && d == 165); // Asserts that you can get JustKen and that d equals the new updated Value
 ```
 
-### Case 8:
+#### Case 8:
 ```
 Map m;
 
@@ -231,7 +231,7 @@ assert(all == "Curse you Perry the Platypus ");
 assert(total == 20);
 ```
 
-### Case 9:
+#### Case 9:
 ```
 Map m;
 
@@ -260,7 +260,7 @@ assert(m1.get("Annie", d) && d == 200);
 assert(!m1.get("Jae", d));
 ```
 
-### Case 10:
+#### Case 10:
 ```
 Map m;
 
@@ -292,7 +292,7 @@ assert(result.get("D", d) && d == 123); //Asserts that result has node with key 
 assert(result.get("E", d) && d == 456); //Asserts that result has node with key E and value 456
 ```
 
-### Case 11:
+#### Case 11:
 ```
 Map m;
 
