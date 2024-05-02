@@ -15,11 +15,46 @@
 
 - [Constructor](#constructor)
 - [Copy Constructor](#copy-constructor)
-- [Destructor](#Destructor)
-- [Copy Constructor](#Assignment-Operator)
+- [Destructor](#destructor)
+- [Assignment Operator](#assignment-operator)
   
 </details>
 
+<details>
+  <summary>Inserting and Deleting Nodes</summary>
+
+- [Size](#size)
+- [Empty](#empty)
+- [Insert](#insert)
+- [Erase](#erase)
+  
+</details>
+
+<details>
+  <summary>Update Node and InsertOrUpdate</summary>
+
+- [Update](#update)
+- [Insert Or Update](#insert-or-update)
+  
+</details>
+
+<details>
+  <summary>Contains and Get</summary>
+
+- [Contains](#constructor)
+- [Get with key](#get-with-key)
+- [Get with index](#get-with-index)
+  
+</details>
+
+<details>
+  <summary>Combine/Swap/Subtract</summary>
+
+- [Swap](#swap)
+- [Combine](#combine)
+- [Subtract](#subtract)
+  
+</details>
 
 ---
 
@@ -111,3 +146,37 @@ const Map& Map::operator=(const Map& rhs) {
 }
 ```
 
+---
+---
+## Size
+
+## Empty
+
+## Insert
+
+## Erase
+
+---
+---
+
+## Update
+
+## Insert or Update
+
+---
+--- 
+
+## Contains
+
+## Get with Key
+
+## Get with Index
+
+---
+---
+
+## Swap
+
+## Combine
+
+## Subtract
