@@ -268,23 +268,218 @@ bool Map::eraseNode(Map::Node*& node, const KeyType& key) const {
 ---
 
 ## Update
+```
+bool Map::update(const KeyType& key, const ValueType& value) {
+    if (!this->contains(key)) { //Checks if key exists in map and if not, return false;
+        return false;
+    }
+
+    return updateNode(this->root, key, value) != nullptr; // recursively update and returns true when updated node returns
+};
+
+//Recursively Update Function
+Map::Node* Map::updateNode(Map::Node* root, const KeyType& key, const ValueType& value) {
+    if (root == nullptr) return nullptr; // if root is null, return nullptr;
+
+    if (root->key == key) { // if the key is equal to the key you are searching for, set node value to value;
+        root->value = value;
+        return root;
+    }
+    else if (root->key < key) { // Move Right Recursively
+        return updateNode(root->right, key, value);
+    }
+    else if (root->key > key) { // Move Left Recursively
+        return updateNode(root->left, key, value);
+    }
+    else {
+        return nullptr; // Otherwise, return nullptr
+    }
+    return nullptr;
+
+};
+
+```
 
 ## Insert or Update
+```
+bool Map::insertOrUpdate(const KeyType& key, const ValueType& value) {
+    if (!this->contains(key)) { //Checks if the map contains the key 
+        insertNode(root, key, value); //inserts node
+    }
+    else {
+        updateNode(root, key, value); // update node
+    }
 
+    return true; // Always return true
+}
+```
 ---
 --- 
 
 ## Contains
+```
+bool Map::contains(const KeyType& key) const {
+    if (findNodeInTree(root, key) != nullptr) { // Checks if the recursive findNodeInTree function gives back node with same key
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+//Recursively FindNodeInTree
+Map::Node* Map::findNodeInTree(Map::Node* node, const KeyType& key) const {
+    if (node == nullptr) return nullptr; // Checks if node is there and return nullptr if it does not
+
+    if (node->key < key) { //Recursively Check to find node right
+        return findNodeInTree(node->right, key);
+    }
+    else if (node->key > key) { // Recursively Check to find node left
+        return findNodeInTree(node->left, key);
+    }
+    else { // Otherwise, return the node that exists as it only returns node when node->key == key
+        return node;
+    }
+
+    return nullptr;
+};
+```
 
 ## Get with Key
+```
+bool Map::get(const KeyType& key, ValueType& value) const {
+    if (!contains(key)) { // Checks if the key does not exist and return false when it does
+        return false;
+    }
+    else {
+        return getNode(root, key, value) != nullptr; // Recursively gets the node and checks if the node exists
+    }
+};
+
+Map::Node* Map::getNode(Node* node, const KeyType& key, ValueType& value) const {
+    if (node == nullptr) return nullptr; // Checks if node is there and return nullptr if it does not
+
+    if (node->key == key) { // Checks if the node key equals the key we are looking for
+        value = node->value; // sets the value to the node value
+        return node;
+    }
+    else if (node->key < key) { // Goes down the right branch and tries to get node down the branch
+        return getNode(node->right, key, value);
+    }
+    else if (node->key > key) { // Goes down the left branch and tries to get node down the branch
+        return getNode(node->left, key, value);
+    }
+    else {
+        return nullptr; //Otherwise, return nullptr
+    }
+
+};
+```
+
 
 ## Get with Index
+```
+bool Map::get(int i, KeyType& key, ValueType& value) const {
+    if (i >= 0 && i < size()) { // Checks if i is within the size of the map
+        int iteration = 0; //sets iteration equal to zero
+        return getNode(i, iteration, root, key, value); // Recursively checks if the node is there
+    }
+    return false;
+}
+
+//Recursive Get Function with i
+bool Map::getNode(int i, int& iteration, Node* node, KeyType& key, ValueType& value) const {
+    if (node == nullptr) return false; // Checks if node is there and return nullptr if it does not
+
+    if (getNode(i, iteration, node->left, key, value)) { // Go down left branch until reach hits the i value for the iteration
+        return true;
+    }
+
+    if (i == iteration) { // Checks if the iteration equals the i value
+        key = node->key; //Sets key reference in function to node key 
+        value = node->value; //Sets value reference in function to node value
+        return true;
+    }
+    iteration++;
+
+    //increase iteration
+
+    return getNode(i, iteration, node->right, key, value); //Look down the right branch recursively
+
+};
+```
+
 
 ---
 ---
 
 ## Swap
+```
+void Map::swap(Map& other) {
+    Node* temp = root;// Create a temp to store the current root
+    int size1 = m_size; //Create a int variable to store size
+
+    root = other.root; // Set the current root to the other roo
+    m_size = other.m_size; //set current map size to other map size
+
+    other.root = temp; // Set other root to the temp
+    other.m_size = size1; // Set the other map size to the current size
+
+};
+```
 
 ## Combine
+```
+bool combine(const Map& m1, const Map& m2, Map& result) {
+    for (int n = 0; n < m1.size(); n++) // Loop through Map 1
+    {
+        //Create variables to store keytypes and valuetypes
+        KeyType k;
+        ValueType v;
+        ValueType z;
+
+        m1.get(n, k, v);//Get the values for each member in Map 1
+        m2.get(k, z); // Get the value for member with same key from Map 1 in Map 2
+        if (!(m2.contains(k) && z != v)) { // Checks if there does not exist a key in Map 2 and the values do not equal each other 
+            result.insert(k, v); // insert key and values from Map 1 in result
+        }
+    }
+    for (int n = 0; n < m2.size(); n++) //Loop through Map 2
+    {
+        //Create variables to store keytypes and valuetypes
+        KeyType k;
+        ValueType v;
+        ValueType z;
+
+        m2.get(n, k, v);//Get the values for each member in Map 2
+        m1.get(k, z);// Get the value for member with same key from Map 2 in Map 1
+
+        if (!(m1.contains(k) && z != v)) {// Checks if there does not exist a key in Map 1 and the values do not equal each other 
+
+            result.insert(k, v);// insert key and values from Map 2 in result
+        }
+    }
+    return true; // return true
+};
+```
 
 ## Subtract
+```
+void subtract(const Map& m1, const Map& m2, Map& result) {
+    for (int n = 0; n < m1.size(); n++) // Loops through Map 1
+    {
+        //Create variables to store keytypes and valuetypes
+        KeyType k;
+        ValueType v;
+        ValueType z;
+
+        m1.get(n, k, v); //Get values and key for each member in Map 1
+        m2.get(k, z); // Gets value for each member Map 2
+
+        if (!(m2.contains(k))) { //Check if the key does not exists in Map 2
+            result.insert(k, v); // Inserts key and values from Map 1
+        }
+    }
+
+};
+```
