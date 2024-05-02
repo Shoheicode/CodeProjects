@@ -148,13 +148,121 @@ const Map& Map::operator=(const Map& rhs) {
 
 ---
 ---
+
 ## Size
 
+```
+int Map::size() const {
+    return m_size;
+};
+```
+
 ## Empty
+```
+bool Map::empty() const {
+    return m_size == 0;
+};
+```
 
 ## Insert
+```
+bool Map::insert(const KeyType& key, const ValueType& value) {
+    if (this->contains(key)) { // Checks if the map contains the key and if so, return false
+        return false;
+    }
+    else if (root == nullptr) { //Checks if root is nullprt and creates a new node and sets to root and increases size
+        root = new Node(key, value);
+        this->m_size++;
+        return true;
+    }
+
+    if (insertNode(root, key, value) != nullptr) { // Inserts Node and checks if the addition does not equal nullptr and if so, incrase size and return true;
+        this->m_size++;
+        return true;
+    }
+    return false;
+}
+
+//Recursively insert Node
+Map::Node* Map::insertNode(Map::Node* node, const KeyType& key, const ValueType& value) {
+    if (node == nullptr) return nullptr;
+
+    if (node->key < key) { // Moves down the right of the tree
+        if (node->right == nullptr) { // checks if right it null and if so, add node
+            node->right = new Node(key, value);
+            return node->right;
+        }
+        return insertNode(node->right, key, value); //other wise continuing adding
+    }
+    else if (node->key > key) { // Moves down the left of the tree
+        if (node->left == nullptr) { // checks if right it null and if so, add node
+            node->left = new Node(key, value);
+            return node->left;
+        }
+        return insertNode(node->left, key, value);//other wise continue inserting
+    }
+    else {
+        return nullptr; // other wise, return nullptr
+    }
+};
+```
 
 ## Erase
+```
+bool Map::erase(const KeyType& key) {
+    if (contains(key)) { // Checks if the key is in the Map and if so, recursively erase from map
+        this->m_size--;
+        return eraseNode(root, key);
+    }
+
+    return false;
+}
+
+//Recursively Erase Function
+bool Map::eraseNode(Map::Node*& node, const KeyType& key) const {
+    if (node == nullptr) return false; // Checks if node is there and return nullptr if it does not
+
+    if (node->key == key) { // if the node key equals the key, point all nodes back correctly
+        if (node->left != nullptr) { // if node left exists, move left node to node
+            Node* tem = node;
+            Node* rightNode = node->right;
+            node = node->left;
+            delete tem;
+            if (rightNode == nullptr) { // if right node does not exist, return true;
+                return true;
+            }
+            else {
+                Node* temp = node;
+                while (temp->right != nullptr) { // check where the right most node is for temp and set the right to the rightNode
+                    temp = temp->right;
+                }
+                temp->right = rightNode;
+                return true;
+            }
+        }
+        else if (node->right != nullptr) { // Check if right node exists and if so, set the current node to the right node
+            Node* tem = node;
+            node = node->right;
+            delete tem;
+            return true;
+        }
+        node = nullptr;
+        return true;
+
+    }
+    else if (node->key < key) { //recursively check the right branch to erase
+        return eraseNode(node->right, key);
+    }
+    else if (node->key > key) { //recursively check the left branch to erase
+        return eraseNode(node->left, key);
+    }
+    else {
+        return false; //Otherwise return false;
+    }
+
+    return false;
+}
+```
 
 ---
 ---
